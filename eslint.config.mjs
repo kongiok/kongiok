@@ -1,6 +1,6 @@
 // @ts-check
-import withNuxt from "./.nuxt/eslint.config.mjs";
 import googleConfig from "gts";
+import withNuxt from "./.nuxt/eslint.config.mjs";
 
 export default withNuxt(
   {
@@ -8,8 +8,6 @@ export default withNuxt(
   },
   {
     files: ["pages/**/*.vue", "server/**/*.ts"],
-    rules: {
-      ...googleConfig,
-    },
+    plugins: { googleConfig },
   },
 );
