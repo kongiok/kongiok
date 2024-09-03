@@ -2,10 +2,19 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
-  modules: ["@nuxt/eslint", "@nuxt/test-utils/module", "@nuxt/ui"],
+  css: ["~/assets/styles/main.css", "~/assets/styles/fonts.css"],
+  modules: [
+    "@nuxt/eslint",
+    "@nuxt/test-utils/module",
+    "@nuxt/ui",
+    "@nuxtjs/tailwindcss",
+  ],
   eslint: {
     config: {
       stylistic: true,
     },
+  },
+  tailwindcss: {
+    cssPath: "~/assets/styles/main.css",
   },
 });
