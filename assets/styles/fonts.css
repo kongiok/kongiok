@@ -1,0 +1,175 @@
+/*
+  LXGW WenKai TC
+*/
+
+@font-face {
+  font-family: "LXGWWenKaiTC";
+  font-weight: normal;
+  src: url("~/assets/fonts/serif/lxgw-wenkai-tc/LXGWWenKaiTC-Regular.ttf")
+    format("truetype");
+}
+@font-face {
+  font-family: "LXGWWenKaiTC";
+  font-weight: bold;
+  src: url("~/assets/fonts/serif/lxgw-wenkai-tc/LXGWWenKaiTC-Bold.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "LXGWWenKaiTC";
+  font-style: light;
+  src: url("~/assets/fonts/serif/lxgw-wenkai-tc/LXGWWenKaiTC-Light.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "LXGWWenKaiTC-Mono";
+  font-weight: normal;
+  src: url("~/assets/fonts/serif/lxgw-wenkai-tc/LXGWWenKaiMonoTC-Regular.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "LXGWWenKaiTC-Mono";
+  font-weight: bold;
+  src: url("~/assets/fonts/serif/lxgw-wenkai-tc/LXGWWenKaiMonoTC-Bold.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "LXGWWenKaiTC-Mono";
+  font-style: light;
+  src: url("~/assets/fonts/serif/lxgw-wenkai-tc/LXGWWenKaiMonoTC-Light.ttf")
+    format("truetype");
+}
+
+/*
+  Iansui
+*/
+
+@font-face {
+  font-family: "Iansui";
+  font-weight: 400;
+  src: url("~/assets/fonts/serif/iansui/Iansui-Regular.ttf") format("truetype");
+}
+
+/*
+  Gen Ryu Min
+*/
+
+@font-face {
+  font-family: "GenRyuMin";
+  font-weight: 200;
+  src: url("~/assets/fonts/serif/GenRyuMin2TC/GenRyuMin2TC-EL.otf")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "GenRyuMin";
+  font-weight: 300;
+  src: url("~/assets/fonts/serif/GenRyuMin2TC/GenRyuMin2TC-L.otf")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "GenRyuMin";
+  font-weight: 400;
+  src: url("~/assets/fonts/serif/GenRyuMin2TC/GenRyuMin2TC-R.otf")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "GenRyuMin";
+  font-weight: 500;
+  src: url("~/assets/fonts/serif/GenRyuMin2TC/GenRyuMin2TC-M.otf");
+}
+
+@font-face {
+  font-family: "GenRyuMin";
+  font-weight: 600;
+  src: url("~/assets/fonts/serif/GenRyuMin2TC/GenRyuMin2TC-H.otf");
+}
+
+@font-face {
+  font-family: "GenRyuMin";
+  font-weight: 700;
+  src: url("~/assets/fonts/serif/GenRyuMin2TC/GenRyuMin2TC-B.otf");
+}
+
+@font-face {
+  font-family: "GenRyuMin";
+  font-weight: 800;
+  src: url("~/assets/fonts/serif/GenRyuMin2TC/GenRyuMin2TC-SB.otf");
+}
+
+/*
+  JetBrains Mono
+*/
+
+@font-face {
+  font-family: "JetBrainsMono";
+  font-weight: 100 900;
+  src: url("~/assets/fonts/monospace/JetBrainsMono/variable/JetBrainsMono[wght].ttf")
+    format("truetype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "JetBrainsMono";
+  font-weight: 100 900;
+  src: url("~/assets/fonts/monospace/JetBrainsMono/variable/JetBrainsMono-Italic[wght].ttf");
+  font-style: italic;
+}
+
+/*
+  Gen Seki Gothic
+*/
+
+@font-face {
+  font-family: "GenSekiGothic";
+  font-weight: 300;
+  src: url("~/assets/fonts/sans/GenSekiGothic/GenSekiGothic2TC-L.otf")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "GenSekiGothic";
+  font-weight: 400;
+  src: url("~/assets/fonts/sans/GenSekiGothic/GenSekiGothic2TC-R.otf")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "GenSekiGothic";
+  font-weight: 500;
+  src: url("~/assets/fonts/sans/GenSekiGothic/GenSekiGothic2TC-M.otf")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "GenSekiGothic";
+  font-weight: 600;
+  src: url("~/assets/fonts/sans/GenSekiGothic/GenSekiGothic2TC-H.otf")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "GenSekiGothic";
+  font-weight: 700;
+  src: url("~/assets/fonts/sans/GenSekiGothic/GenSekiGothic2TC-B.otf")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "Chenyuluoyan";
+  font-weight: normal;
+  src: url("~/assets/fonts/handwrite/Chenyuluoyan/ChenYuluoyan-Thin.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Chenyuluoyan-mono";
+  font-weight: normal;
+  src: url("~/assets/fonts/handwrite/Chenyuluoyan/ChenYuluoyan-Thin-Monospaced.ttf")
+    format("truetype");
+}
