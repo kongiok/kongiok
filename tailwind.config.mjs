@@ -1,4 +1,4 @@
-import { _fontFamily } from "#tailwind-config/theme";
+import aspectRatio from "@tailwindcss/aspect-ratio";
 
 /** @type {import('tailwindcss').Config} */
 const extendedColors = {
@@ -130,5 +130,5 @@ export default {
       boxShadow: extendedShadows,
     },
   },
-  plugins: [],
+  plugins: [aspectRatio],
 };
