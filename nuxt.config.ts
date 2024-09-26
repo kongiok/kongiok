@@ -8,6 +8,8 @@ export default defineNuxtConfig({
     "@nuxt/test-utils/module",
     "@nuxt/ui",
     "@nuxtjs/tailwindcss",
+    "@nuxt/content",
+    "@nuxt/icon",
   ],
   eslint: {
     config: {

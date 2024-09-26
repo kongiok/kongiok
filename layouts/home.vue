@@ -101,6 +101,9 @@
   .tabs {
     @apply gap-6 bg-concrete-100;
   }
+  .social {
+    @apply gap-5 flex-wrap overflow-hidden;
+  }
 }
 @screen lg {
   .bento {

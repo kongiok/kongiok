@@ -22,19 +22,33 @@
       </nuxt-link>
     </template>
     <template #tabs>
-      <nuxt-link class="tab" v-for="link in tabsToBeNavigated" :to="link.url">
+      <nuxt-link
+        class="tab"
+        v-for="link in [...localLinks, ...siteLinks]"
+        :to="link.url"
+      >
         {{ link.title }}
-        <nuxt-icon v-if="link.icon" :name="link.icon"></nuxt-icon>
+        <Icon v-if="link.icon" :name="link.icon" />
+      </nuxt-link>
+    </template>
+    <template #social>
+      <nuxt-link
+        v-for="link in socialLinks"
+        :key="link.url"
+        :to="link.url"
+        class="link social"
+      >
+        <Icon v-if="link.icon" :name="link.icon" class="icon" />
       </nuxt-link>
     </template>
     <template #stats-first-title>
-      <h1 class="statistics">{{ statisticTitles[0] }}</h1>
+      <h1 class="statistics">Current Stars</h1>
     </template>
     <template #stats-first>
       <span class="counts">0</span>
     </template>
     <template #stats-second-title>
-      <h1 class="statistics">{{ statisticTitles[1] }}</h1>
+      <h1 class="statistics">Contributions</h1>
     </template>
     <template #stats-second>
       <span class="counts">0</span>
@@ -49,6 +63,11 @@ definePageMeta({
     name: "fade",
   },
 });
+interface NavLinks {
+  social: Link[];
+  local: Link[];
+  external: Link[];
+}
 const rollingTitleIndex: Ref<number> = ref(0);
 let intervalId: number | null = null;
 const titleToBeRolled = useState<string[]>("Home Page Titles", () => [
@@ -58,37 +77,15 @@ const titleToBeRolled = useState<string[]>("Home Page Titles", () => [
   "an Avid Learner",
   "a Proactive Sharer",
 ]);
-const tabsToBeNavigated = useState<Link[]>("Tabs to be Navigated", () => [
-  {
-    title: "giok",
-    url: "https://giok.org",
-    description: "Way to my one person organization.",
-  },
-  {
-    title: "report",
-    url: "https://report.giok.org",
-    description: "Way to Giok Report, a standardlone report.",
-  },
-  {
-    title: "about",
-    url: "/about",
-    description: "Introduction of myself",
-  },
-  {
-    title: "projects",
-    url: "/projects",
-    description: "Introduction of my projects",
-  },
-  {
-    title: "bio",
-    url: "/bio",
-    description: "Way to my bio page.",
-  },
-]);
-const statisticTitles = useState<string[]>("Statistics Title", () => [
-  "Contributions",
-  "The Most Starred",
-]);
+
+const { data: navLinks } = await useAsyncData("Social Links", () =>
+  queryContent<NavLinks>("nav").findOne(),
+);
+const {
+  social: socialLinks,
+  local: localLinks,
+  external: siteLinks,
+} = navLinks?.value || { social: [], local: [], external: [] };
 
 onMounted(() => {
   setInterval(() => {
@@ -112,6 +109,26 @@ onBeforeUnmount(() => {
 }
 .link {
   @apply w-full h-full flex justify-center items-center;
+}
+.social {
+  @apply w-16 h-16 aspect-1 m-4 p-2 shadow rounded-md;
+  @apply transition-all duration-150;
+  &:hover {
+    @apply shadow-md bg-concrete-200/15;
+    > .icon {
+      @apply text-concrete-800;
+    }
+  }
+  &:active {
+    @apply shadow-inner bg-concrete-800;
+    > .icon {
+      @apply text-goldenrod-400;
+    }
+  }
+  .icon {
+    @apply h-full w-full;
+    @apply text-4xl text-concrete-600;
+  }
 }
 
 .heading {
@@ -182,11 +199,16 @@ onBeforeUnmount(() => {
 }
 @screen md {
   .tab {
-    @apply text-lg;
+    @apply text-base;
     &:first-child,
     &:last-child {
       @apply inline-block;
     }
+  }
+}
+@screen lg {
+  .tab {
+    @apply text-lg;
   }
 }
 </style>

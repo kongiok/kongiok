@@ -1,13 +1,10 @@
-export type ItemBase = {
+export type Label = {
   title: string;
   description: string;
-};
-export type ItemOptional = {
-  image?: string;
-  icon?: string;
   disabled?: boolean;
 };
-export type Item = ItemBase & ItemOptional;
-export type Link = Item & {
+
+export type Link = Label & {
+  icon?: string;
   url: string;
 };

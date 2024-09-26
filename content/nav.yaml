@@ -1,0 +1,34 @@
+local:
+  - title: home
+    url: /
+    description: The total view of my page.
+  - title: about
+    url: /about
+    description: Explore our About Page to learn more about our team, our values, and our commitment to excellence.
+  - title: projects
+    url: /projects
+    description: Explore our Projects Page to discover a diverse portfolio of innovative work, detailed case studies, client testimonials, and opportunities for collaboration.
+  - title: contacts
+    url: /contacts
+    description: Explore our Contacts Page to get in touch with our team, request a quote, or learn more about our services.
+social:
+  - title: github
+    icon: ri:github-line
+    url: https://github.com/kongiok
+    description: Checkout my GitHub profile to see my latest projects and contributions.
+  - title: instagram
+    icon: ri:instagram-line
+    url: https://www.instagram.com/kongiok.tw
+    description: Follow me on Instagram to see my latest photos and stories.
+  - title: threads
+    icon: ri:threads-line
+    url: https://www.threads.net/@kongiok.tw
+    description: Follow me on Threads to see my latest thoughts and ideas.
+
+external:
+  - title: giok
+    url: https://giok.org
+    description: solo organization focused on affairs review, technology unboxing, open-source and ideas spreading.
+  - title: giok po
+    url: https://reports.giok.org
+    description: Reports of Giok Organization.
