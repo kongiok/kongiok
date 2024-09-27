@@ -115,8 +115,12 @@ const extendedFonts = {
 };
 
 const extendedShadows = {
-  anime: "4px 5px 0px 0px #1a250e",
-  "anime-inner": "inset 2px 2px 0px 0px #1a250e",
+  anime: "4px 5px 0px 0px",
+  "anime-inner": "inset 2px 2px 0px 0px",
+};
+
+const extendedScreens = {
+  xs: "320px",
 };
 
 export default {
@@ -128,6 +132,8 @@ export default {
       animation: extendedAnimations,
       fontFamily: extendedFonts,
       boxShadow: extendedShadows,
+      dropShadow: extendedShadows,
+      screens: extendedScreens,
     },
   },
   plugins: [aspectRatio],

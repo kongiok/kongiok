@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxt/content",
     "@nuxt/icon",
+    "@nuxt/image",
   ],
   eslint: {
     config: {

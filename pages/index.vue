@@ -10,7 +10,7 @@
       <p class="quote">心若正，身自穩，行於天地間，無愧於心。</p>
     </template>
     <template #anchor-fyi>
-      <nuxt-link class="anchor" to="/about">start your journey!</nuxt-link>
+      <nuxt-link class="anchor fyi" to="/about">wanna know about me?</nuxt-link>
     </template>
     <template #profile>
       <nuxt-link to="/about" class="avatar">
@@ -23,7 +23,7 @@
     </template>
     <template #tabs>
       <nuxt-link
-        class="tab"
+        class="anchor tab"
         v-for="link in [...localLinks, ...siteLinks]"
         :to="link.url"
       >
@@ -36,22 +36,25 @@
         v-for="link in socialLinks"
         :key="link.url"
         :to="link.url"
-        class="link social"
+        class="anchor social"
       >
         <Icon v-if="link.icon" :name="link.icon" class="icon" />
       </nuxt-link>
+    </template>
+    <template #name>
+      <h1 class="name title">Ong Kong Giok</h1>
     </template>
     <template #stats-first-title>
       <h1 class="statistics">Current Stars</h1>
     </template>
     <template #stats-first>
-      <span class="counts">0</span>
+      <span class="counts">{{ firstStatsCounts }}</span>
     </template>
     <template #stats-second-title>
       <h1 class="statistics">Contributions</h1>
     </template>
     <template #stats-second>
-      <span class="counts">0</span>
+      <span class="counts">{{ secondStatsCounts }}</span>
     </template>
   </NuxtLayout>
 </template>
@@ -77,7 +80,6 @@ const titleToBeRolled = useState<string[]>("Home Page Titles", () => [
   "an Avid Learner",
   "a Proactive Sharer",
 ]);
-
 const { data: navLinks } = await useAsyncData("Social Links", () =>
   queryContent<NavLinks>("nav").findOne(),
 );
@@ -100,73 +102,50 @@ onBeforeUnmount(() => {
     clearInterval(intervalId);
   }
 });
+
+const firstStatsCounts = useState<number>("First Stats Counts", () => 40);
+const secondStatsCounts = useState<number>("Second Stats Counts", () => 99);
 </script>
 
 <style scoped>
-.part {
-  @apply flex-1 rounded-lg shadow;
-  @apply bg-concrete-300;
-}
-.link {
-  @apply w-full h-full flex justify-center items-center;
-}
-.social {
-  @apply w-16 h-16 aspect-1 m-4 p-2 shadow rounded-md;
-  @apply transition-all duration-150;
+.anchor {
+  @apply px-3 py-2 rounded-xl border-2;
+  @apply font-mono font-semibold text-sm capitalize;
+  @apply shadow-anime transition-all duration-150;
+  @apply text-concrete-600 border-concrete-600 shadow-concrete-700 bg-concrete-100;
   &:hover {
-    @apply shadow-md bg-concrete-200/15;
-    > .icon {
-      @apply text-concrete-800;
-    }
+    @apply shadow-none text-concrete-800 border-concrete-800;
   }
   &:active {
-    @apply shadow-inner bg-concrete-800;
-    > .icon {
-      @apply text-goldenrod-400;
-    }
-  }
-  .icon {
-    @apply h-full w-full;
-    @apply text-4xl text-concrete-600;
+    @apply shadow-anime-inner text-goldenrod-500 shadow-concrete-700 bg-concrete-200/20;
   }
 }
-
-.heading {
-  .title {
-    @apply font-bold font-title;
-    @apply flex text-center items-center text-4xl text-concrete-900;
-    .rolling {
-      @apply inline-flex items-center p-4 h-full;
-      @apply overflow-hidden whitespace-nowrap pr-5;
-      @apply animate-typing delay-150;
-      @apply text-goldenrod-800;
-      @apply border-r-8 border-concrete-50;
-    }
+.title {
+  @apply font-bold font-title;
+  @apply flex text-center items-center;
+  @apply text-concrete-800;
+  .rolling {
+    @apply inline-flex items-center p-4 h-full;
+    @apply overflow-hidden whitespace-nowrap pr-5;
+    @apply animate-typing delay-150;
+    @apply border-r-8;
+    @apply text-burnt-sienna-700;
   }
-  .quote {
-    @apply block text-center p-3 rounded-md;
-    @apply font-handwriting text-xl mt-3;
-    @apply text-concrete-900;
-  }
-  .anchor {
-    @apply absolute bottom-10 right-14 px-3 py-2 rounded-xl;
-    @apply bg-concrete-50 text-concrete-900 border-2 border-olive-900;
-    @apply font-mono font-semibold capitalize italic;
-
-    @apply shadow-anime transition-all duration-150;
-    &:hover {
-      @apply shadow-none;
-    }
-    &:active {
-      @apply text-olive-700 italic;
-      @apply shadow-anime-inner;
-    }
-  }
+}
+.quote {
+  @apply block text-center p-3 rounded-md;
+  @apply font-handwriting mt-3;
+  @apply text-concrete-800;
+}
+.fyi {
+  @apply absolute bottom-[12%] right-[12%];
+  @apply italic text-concrete-700 border-concrete-700;
 }
 .avatar {
-  @apply w-full max-w-[85%] aspect-1;
+  @apply w-full max-w-[65%] aspect-1;
   @apply rounded-full overflow-hidden;
-  @apply shadow-anime;
+  @apply border-2 border-concrete-600;
+  @apply shadow-anime shadow-concrete-700;
   img {
     @apply object-cover w-full h-full;
   }
@@ -174,41 +153,68 @@ onBeforeUnmount(() => {
     @apply shadow-none;
   }
 }
-.tab {
-  @apply px-3 py-2 rounded-lg border-2;
-  @apply font-mono font-semibold text-sm capitalize;
-  @apply text-concrete-800 border-concrete-600 shadow-anime transition-all duration-150;
-  &:hover {
-    @apply shadow-none;
-  }
-  &:active {
-    @apply shadow-anime-inner text-olive-700;
-  }
-  &:first-child,
-  &:last-child {
-    @apply hidden;
-  }
+.name {
+  @apply font-serif text-3xl font-bold;
+  @apply text-goldenrod-500;
 }
+
 .statistics {
-  @apply font-serif text-2xl font-bold;
+  @apply font-title font-semibold;
   @apply text-concrete-900;
 }
 .counts {
-  @apply font-mono text-5xl font-bold;
+  @apply font-mono font-bold;
+  @apply tabular-nums;
   @apply text-concrete-800;
 }
+.social {
+  @apply flex p-3 text-4xl;
+  & > span {
+    @apply justify-center items-center;
+  }
+}
+
+@screen xs {
+  .tab:first-child {
+    @apply hidden;
+  }
+}
+
 @screen md {
+  .title {
+    @apply text-2xl;
+  }
+  .quote {
+    @apply mt-3 text-lg;
+  }
   .tab {
     @apply text-base;
-    &:first-child,
     &:last-child {
       @apply inline-block;
     }
   }
+  .statistics {
+    @apply text-lg;
+  }
+  .counts {
+    @apply text-[4em];
+  }
 }
 @screen lg {
+  .title {
+    @apply text-4xl;
+  }
+  .quote {
+    @apply mt-3 text-2xl;
+  }
   .tab {
     @apply text-lg;
+  }
+  .statistics {
+    @apply text-xl;
+  }
+  .counts {
+    @apply text-[5em];
   }
 }
 </style>
